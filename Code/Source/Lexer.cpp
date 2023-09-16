@@ -254,7 +254,7 @@ namespace uzl
 		}
 
 		auto kind = TK_Identifier;
-		const auto it = keywords.find(ident.data());
+		const auto it = keywords.find(ident);
 
 		if (it != keywords.end()) kind = it->second;
 

@@ -6,7 +6,7 @@
 namespace uzl
 {
 
-	const std::unordered_map<const char*, TokenKind> keywords =
+	const std::unordered_map<std::string, TokenKind> keywords =
 	{
 		{ "func", TK_KwFunc }, { "const", TK_KwConst }, { "true", TK_KwTrue }, { "false", TK_KwFalse },
 		{ "for", TK_KwFor }, { "while", TK_KwWhile }, { "loop", TK_KwLoop }, { "continue", TK_KwContinue },
