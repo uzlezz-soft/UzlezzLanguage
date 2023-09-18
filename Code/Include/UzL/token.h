@@ -67,8 +67,10 @@ namespace uzl
 		TK_Colon,	  ///< :
 		TK_SemiColon, ///< ;
 		TK_Comma,	  ///< ,
-		TK_Arrow,	  ///< ->
+		TK_RArrow,	  ///< ->
+		TK_LArrow,	  ///< <-
 		TK_ScopeRes,  ///< ::
+		TK_AtSign,	  ///< @
 
 		TK_SQuote, ///< '
 		TK_DQuote, ///< "
@@ -89,6 +91,7 @@ namespace uzl
 		TK_KwFallthrough,
 		TK_KwDefault,
 		TK_KwVar,
+		TK_KwType,
 
 		TK_Eof
 	};

@@ -11,6 +11,8 @@ namespace uzl
 		m_source = source;
 		m_file_name = std::make_shared<std::string>(file_name.data());
 		m_index = 0;
+		m_line = 1;
+		m_column = 1;
 
 		while (nextToken());
 
@@ -73,6 +75,8 @@ namespace uzl
 				}
 				if (peek(1) == '=')
 					return advanceWith(TK_LTE, "<=");
+				if (peek(1) == '-')
+					return advanceWith(TK_LArrow, "<-");
 				return advanceWith(TK_LT, "<");
 
 			case '>':
@@ -121,7 +125,7 @@ namespace uzl
 					: advanceWith(TK_Add, "+");
 			case '-':
 				return peek(1) == '=' ? advanceWith(TK_SubA, "-=")
-					: peek(1) == '>' ? advanceWith(TK_Arrow, "->")
+					: peek(1) == '>' ? advanceWith(TK_RArrow, "->")
 					: peek(1) == '-' ? advanceWith(TK_DoubleDec, "--")
 					: advanceWith(TK_Sub, "-");
 			case '*':
@@ -129,6 +133,8 @@ namespace uzl
 					: advanceWith(TK_Asterisk, "*");
 			case '/':
 				return peek(1) == '=' ? advanceWith(TK_DivA, "/=") : advanceWith(TK_Div, "/");
+			case '@':
+				return advanceWith(TK_AtSign, "@");
 
 			case '(':
 				return advanceWith(TK_LBracket, "(");

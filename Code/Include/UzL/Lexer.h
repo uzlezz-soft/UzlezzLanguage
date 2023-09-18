@@ -11,7 +11,7 @@ namespace uzl
 		{ "func", TK_KwFunc }, { "const", TK_KwConst }, { "true", TK_KwTrue }, { "false", TK_KwFalse },
 		{ "for", TK_KwFor }, { "while", TK_KwWhile }, { "loop", TK_KwLoop }, { "continue", TK_KwContinue },
 		{ "switch", TK_KwSwitch }, { "case", TK_KwCase }, { "fallthrough", TK_KwFallthrough },
-		{ "default", TK_KwDefault }, { "let", TK_KwVar }
+		{ "default", TK_KwDefault }, { "let", TK_KwVar }, { "type", TK_KwType }
 	};
 
 	class Lexer
@@ -56,7 +56,7 @@ namespace uzl
 
 		bool nextToken();
 
-		char peek() const { return m_source[m_index]; }
+		char peek() const { return m_source.length() <= m_index ? '\0' : m_source[m_index]; }
 		char peek(i64 offset) const;
 		static bool isWhiteSpace(char c);
 		bool isNumber(char c) const;
